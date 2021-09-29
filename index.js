@@ -1,10 +1,11 @@
 const D_F_urlBase = function(){
     this.G = function(){
-        return G();
+        return _G();
     };
     this.S=function(u){
-        document.title = u;
-        if (u === G())
+        if (document.title !== u)
+            document.title = u;
+        if (u === _G())
             return false;// nem cserelunk ketszer ugyan arra z url re... 
         if (window.history.pushState) {
             let r = {
@@ -18,10 +19,10 @@ const D_F_urlBase = function(){
             location.hash = u;
         }
     };
-    const G = ()=>{
+    const _G = ()=>{
         let o;
         if (window.history.pushState) {
-            o = window.location.pathname;
+             window.location.pathname;
         } else {
             o = location.hash;
         }
